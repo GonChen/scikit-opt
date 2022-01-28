@@ -82,7 +82,7 @@ class PSO(SkoBase):
 
     def __init__(self, func, n_dim=None, pop=40, max_iter=150, lb=-1e5, ub=1e5, w=0.8, c1=0.5, c2=0.5,
                  constraint_eq=tuple(), constraint_ueq=tuple(), verbose=False
-                 , dim=None):
+                 , dim=None, record_mode=False):
 
         n_dim = n_dim or dim  # support the earlier version
 
@@ -114,7 +114,7 @@ class PSO(SkoBase):
         self.update_gbest()
 
         # record verbose values
-        self.record_mode = False
+        self.record_mode = record_mode
         self.record_value = {'X': [], 'V': [], 'Y': []}
         self.best_x, self.best_y = self.gbest_x, self.gbest_y  # history reasons, will be deprecated
 
