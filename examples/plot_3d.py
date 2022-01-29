@@ -21,7 +21,7 @@ def my_plot_3d(func, x_range, y_range, record=None):
 
     # Make data.
     X, Y = np.meshgrid(x_range, y_range)
-    Z = func(X, Y)
+    Z = func((X, Y))
 
     # Plot the surface.
     surf = ax.plot_surface(X, Y, Z, cmap=cm.coolwarm, rstride = 1, cstride = 1, linewidth=0, antialiased=False, alpha=0.5)
@@ -31,7 +31,7 @@ def my_plot_3d(func, x_range, y_range, record=None):
         x_len = len(record['X'])
         from sklearn.preprocessing import minmax_scale
         num_points = x_records[0].shape[0]
-        num_points = 10
+        num_points = 20
         colors = minmax_scale(np.array(range(num_points+1)), feature_range=(0, 1))
         cmap = cm.viridis
 
@@ -44,7 +44,7 @@ def my_plot_3d(func, x_range, y_range, record=None):
                 ys = ys[i-2:i]
                 zs = zs[i-2:i]
                 ax.plot(xs, ys, zs, lw=1, color=cmap(colors[j]))
-                ax.scatter(xs[1], ys[1], zs[1], s=10, color=cmap(colors[j]))
+                ax.scatter(xs[1], ys[1], zs[1], s=5, color=cmap(colors[j]))
             plt.pause(1)
         #I will replace this line with:
         # a = Arrow3D([mean_x, v[0]], [mean_y, v[1]], 

@@ -4,14 +4,25 @@ if __name__ == "__main__":
     sys.path.append(os.getcwd())
 
 import matplotlib.pyplot as plt
+from functools import partial
 import numpy as np
 from plot_3d import my_plot_3d
+from my_demo_func import *
 
-def demo_func(x1, x2):
-    return x1 ** 2 + (x2 - 0.05) ** 2 + x2 ** 2
 
-X = np.arange(-5, 5, 0.5)
-Y = np.arange(-5, 5, 0.5)
+# demo_func = my_sphere
+# demo_func = partial(my_rosenbrock, a=-1, b=100)
+# demo_func = my_rastrigin
+# demo_func = my_booth
+# demo_func = my_matyas
+# demo_func = my_ackley
+# demo_func = my_levi13
+# demo_func = my_himmelblau
+# demo_func = my_beale
+demo_func = my_goldstein_price
+
+X = np.arange(-5, 5, 0.1)
+Y = np.arange(-5, 5, 0.1)
 import sys,os
 print(os.environ.get('PYTHONPATH'))
 print(sys.path)
